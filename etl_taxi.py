@@ -46,7 +46,7 @@ def transform(df: pd.DataFrame):
 def load(df: pd.DataFrame):
     logger.info(f"Loading to {DB_URL} table: {TABLE_NAME}")
     engine = create_engine(DB_URL)
-    df.to_sql(TABLE_NAME, engine, if_exists="replace", index=False, chunksize=
+    df.to_sql(TABLE_NAME, engine, if_exists="append", index=False, chunksize=
               100000, method="multi")
     logger.info("Load Finished")
 
